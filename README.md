@@ -1,4 +1,4 @@
-# traceit v 0.1
+# traceit v0.1
 
 Very, very quick command line script for [Jon Matthews](https://github.com/joncarlmatthews)
 
