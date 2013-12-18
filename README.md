@@ -5,6 +5,7 @@ Very, very quick command line script for [Jon Matthews](https://github.com/jonca
 Takes a url as an argument, runs curl command and extracts http response codes and locations. Outputs list of redirects.
 
 Written by: Kieran Masterton <kieran.masterton@gmail.com>
+
 Date: 18.12.13
 
 Provided without guarantee or warranty under the WTFPL 
