@@ -39,15 +39,18 @@ Open3.popen3("curl -I -L #{ARGV.first}") do |stdin, stdout, stderr, thread|
   http_codes.each_with_index do |code,i|
     # clean up strings
     code = code.to_s.gsub(/\[\"/, "").gsub(/\\r\"\]/, "")
-    location = http_locations[i].to_s.gsub(/\[\"/, "").gsub(/\\r\"\]/, "")
+    if 0 == i
+      location = ARGV.first
+    else  
+      ii = i - 1
+      location = http_locations[ii].to_s.gsub(/\[\"/, "").gsub(/\\r\"\]/, "")
+    end
     
-    # if not response code 200
-  	if '200 OK' != code.to_s 
-      # output code and location
-      puts code + ": " + location
-    else
-      # else output 200 code and trace complete message
-      puts code
+    # output code and location
+    puts code + ": " + location
+    
+    # if response code 200 trace is complete
+  	if '200 OK' == code.to_s 
       puts "Trace complete!"
     end
   end
