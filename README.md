@@ -1,6 +1,6 @@
 # traceit v 0.1
 
-Very, very quick command line script for Jon Matthews
+Very, very quick command line script for @joncarlmatthews
 
 Takes a url as an argument, runs curl command and extracts http response codes and locations. Outputs list of redirects.
 
@@ -9,7 +9,7 @@ Date: 18.12.13
 
 Provided without guarantee or warranty under the WTFPL 
 
-# Installation
+## Installation
 
 1. Download
 2. cd into traceit directory
@@ -17,7 +17,7 @@ Provided without guarantee or warranty under the WTFPL
 4. Add traceit to your $PATH if you wish
 5. Done!
 
-# Running a trace
+## Running a trace
 
 	./traceit <url>
 	
