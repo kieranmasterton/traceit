@@ -8,8 +8,6 @@ Written by: Kieran Masterton <kieran.masterton@gmail.com>
 
 Date: 18.12.13
 
-Provided without guarantee or warranty under the WTFPL 
-
 ## Installation
 
 1. Download
