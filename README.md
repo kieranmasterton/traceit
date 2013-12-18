@@ -1,6 +1,6 @@
 # traceit v 0.1
 
-Very, very quick command line script for @joncarlmatthews
+Very, very quick command line script for [Jon Matthews](https://github.com/joncarlmatthews)
 
 Takes a url as an argument, runs curl command and extracts http response codes and locations. Outputs list of redirects.
 
