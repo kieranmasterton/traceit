@@ -26,7 +26,7 @@ For example
 
 Output should look like:
 
-	301 Moved Permanently: http://www.google.com/
-	302 Found: http://www.google.co.uk/?gws_rd=cr&ei=YqmxUtqnLvKa1AXG3ICIAQ
-	200 OK
+	301 Moved Permanently: http://google.com
+	302 Found: http://www.google.com/
+	200 OK: http://www.google.co.uk/?gws_rd=cr&ei=m9yxUuDwA6WyywPbpoGoCg
 	Trace complete!
