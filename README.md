@@ -26,6 +26,7 @@ For example
 
 Output should look like:
 
-	301 Moved: http://wp.smashingmagazine.com/2010/08/19/100-free-high-quality-wordpress-themes-for-2010/
+	301 Moved Permanently: http://www.google.com/
+	302 Found: http://www.google.co.uk/?gws_rd=cr&ei=YqmxUtqnLvKa1AXG3ICIAQ
 	200 OK
 	Trace complete!
