@@ -26,7 +26,11 @@ For example
 	./traceit http://google.com
 
 Output should look like:
+	
 	301 Moved Permanently: http://www.google.com/
+	
 	302 Found: http://www.google.co.uk/?gws_rd=cr&ei=YqmxUtqnLvKa1AXG3ICIAQ
+	
 	200 OK
+	
 	Trace complete!
