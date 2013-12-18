@@ -1,0 +1,71 @@
+#!/usr/bin/ruby
+
+# traceit v 0.1
+# Very, very quick command line script for Jon Matthews
+# Takes a url as an argument, runs curl command
+# and extracts http response codes and locations.
+# Outputs list of redirects.
+#
+# Written by Kieran Masterton <kieran.masterton@gmail.com> 
+# 18.12.13
+# Provided without guarantee or warranty under the WTFPL:
+
+#############################################################################
+#         DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+#                    Version 2, December 2004
+#
+# Copyright (C) 2004 Sam Hocevar <sam@hocevar.net>
+#
+# Everyone is permitted to copy and distribute verbatim or modified
+# copies of this license document, and changing it is allowed as long
+# as the name is changed.
+#
+#            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+#   TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+#
+#  0. You just DO WHAT THE FUCK YOU WANT TO.
+###########################################################################
+
+# load open3 lib
+require 'open3'
+
+# check if user has supplied a url
+if nil == ARGV.first
+  puts "You must supply a URL to trace."
+  exit
+end
+
+# run curl command
+Open3.popen3("curl -I -L #{ARGV.first}") do |stdin, stdout, stderr, thread|
+  # get curl output
+  result = stdout.read
+
+  # regex for finding http response code lines
+  codes_reg = /^HTTP\/1\.1 (.*)$/
+
+  # find all http response codes
+  http_codes = result.scan(codes_reg)
+
+  # regex for finding all location lines
+  location_reg = /Location: (.*)$/
+
+  # find all http locations
+  http_locations = result.scan(location_reg)
+
+  # loop through response codes
+  http_codes.each_with_index do |code,i|
+    # clean up strings
+    code = code.to_s.gsub(/\[\"/, "").gsub(/\\r\"\]/, "")
+    location = http_locations[i].to_s.gsub(/\[\"/, "").gsub(/\\r\"\]/, "")
+    
+    # if not response code 200
+  	if '200 OK' != code.to_s 
+      # output code and location
+      puts code + ": " + location
+    else
+      # else output 200 code and trace complete message
+      puts code
+      puts "Trace complete!"
+    end
+  end
+end
